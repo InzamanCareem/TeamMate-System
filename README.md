@@ -96,7 +96,7 @@ TeamMateSystem
 
 ### 🚀 How to Use
 
-- Run the TeamMate.java main program.
+- Run the **TeamMate.java** main program.
 - Members complete the survey or provide a CSV file of responses.
 - The system categorizes members by personality type and validates inputs.
 - Form teams based on game interest, role, and personality.
