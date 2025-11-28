@@ -1,0 +1,101 @@
+ID,Name,Email,PreferredGame,SkillLevel,PreferredRole,PersonalityScore,PersonalityType
+P10,Participant_10,user10@university.edu,valorant,6,coordinator,76,Balanced
+P3,Participant_3,user3@university.edu,dota 2,7,supporter,80,Balanced
+P9,Participant_9,user9@university.edu,basketball,10,defender,80,Balanced
+P8,Participant_8,user8@university.edu,fifa,4,strategist,44,null
+P7,Participant_7,user7@university.edu,valorant,4,coordinator,76,Balanced
+P6,Participant_6,user6@university.edu,valorant,2,strategist,72,Balanced
+P5,Participant_5,user5@university.edu,valorant,3,defender,44,null
+P2,Participant_2,user2@university.edu,chess,7,supporter,44,null
+P1,Participant_1,user1@university.edu,basketball,5,supporter,64,Thinker
+P4,Participant_4,user4@university.edu,valorant,9,coordinator,72,Balanced
+P19,Participant_19,user19@university.edu,dota 2,7,defender,72,Balanced
+P18,Participant_18,user18@university.edu,chess,9,attacker,52,Thinker
+P17,Participant_17,user17@university.edu,cs:go,4,defender,56,Thinker
+P16,Participant_16,user16@university.edu,dota 2,1,coordinator,52,Thinker
+P15,Participant_15,user15@university.edu,basketball,6,coordinator,48,null
+P12,Participant_12,user12@university.edu,cs:go,6,supporter,40,null
+P13,Participant_13,user13@university.edu,chess,9,strategist,52,Thinker
+P11,Participant_11,user11@university.edu,valorant,9,supporter,64,Thinker
+P14,Participant_14,user14@university.edu,dota 2,8,supporter,48,null
+P28,Participant_28,user28@university.edu,valorant,9,defender,40,null
+P27,Participant_27,user27@university.edu,chess,3,strategist,56,Thinker
+P26,Participant_26,user26@university.edu,basketball,6,coordinator,36,null
+P25,Participant_25,user25@university.edu,valorant,10,defender,76,Balanced
+P24,Participant_24,user24@university.edu,dota 2,9,supporter,52,Thinker
+P23,Participant_23,user23@university.edu,fifa,2,attacker,76,Balanced
+P22,Participant_22,user22@university.edu,valorant,6,strategist,72,Balanced
+P21,Participant_21,user21@university.edu,fifa,5,coordinator,60,Thinker
+P20,Participant_20,user20@university.edu,fifa,10,defender,36,null
+P37,Participant_37,user37@university.edu,dota 2,3,defender,52,Thinker
+P36,Participant_36,user36@university.edu,basketball,2,attacker,64,Thinker
+P35,Participant_35,user35@university.edu,chess,9,defender,48,null
+P34,Participant_34,user34@university.edu,valorant,6,attacker,32,null
+P33,Participant_33,user33@university.edu,chess,8,supporter,32,null
+P32,Participant_32,user32@university.edu,chess,1,supporter,68,Thinker
+P31,Participant_31,user31@university.edu,cs:go,9,supporter,88,Balanced
+P30,Participant_30,user30@university.edu,chess,8,strategist,84,Balanced
+P29,Participant_29,user29@university.edu,chess,8,supporter,76,Balanced
+P46,Participant_46,user46@university.edu,dota 2,9,supporter,56,Thinker
+P45,Participant_45,user45@university.edu,chess,9,defender,60,Thinker
+P44,Participant_44,user44@university.edu,chess,7,strategist,40,null
+P43,Participant_43,user43@university.edu,basketball,6,attacker,44,null
+P42,Participant_42,user42@university.edu,basketball,3,strategist,60,Thinker
+P41,Participant_41,user41@university.edu,valorant,5,coordinator,60,Thinker
+P40,Participant_40,user40@university.edu,basketball,7,coordinator,52,Thinker
+P39,Participant_39,user39@university.edu,basketball,5,supporter,56,Thinker
+P38,Participant_38,user38@university.edu,basketball,2,strategist,52,Thinker
+P55,Participant_55,user55@university.edu,fifa,4,attacker,60,Thinker
+P54,Participant_54,user54@university.edu,chess,1,defender,68,Thinker
+P53,Participant_53,user53@university.edu,chess,4,supporter,68,Thinker
+P52,Participant_52,user52@university.edu,cs:go,9,attacker,72,Balanced
+P51,Participant_51,user51@university.edu,cs:go,3,attacker,68,Thinker
+P50,Participant_50,user50@university.edu,dota 2,10,defender,52,Thinker
+P49,Participant_49,user49@university.edu,chess,7,coordinator,52,Thinker
+P48,Participant_48,user48@university.edu,chess,5,strategist,56,Thinker
+P47,Participant_47,user47@university.edu,cs:go,6,defender,56,Thinker
+P64,Participant_64,user64@university.edu,cs:go,4,coordinator,64,Thinker
+P63,Participant_63,user63@university.edu,fifa,8,strategist,68,Thinker
+P62,Participant_62,user62@university.edu,fifa,3,defender,64,Thinker
+P61,Participant_61,user61@university.edu,chess,10,supporter,68,Thinker
+P60,Participant_60,user60@university.edu,chess,10,strategist,56,Thinker
+P59,Participant_59,user59@university.edu,basketball,8,attacker,72,Balanced
+P58,Participant_58,user58@university.edu,dota 2,1,strategist,56,Thinker
+P57,Participant_57,user57@university.edu,dota 2,8,defender,84,Balanced
+P56,Participant_56,user56@university.edu,fifa,2,supporter,64,Thinker
+P73,Participant_73,user73@university.edu,basketball,7,supporter,64,Thinker
+P72,Participant_72,user72@university.edu,cs:go,6,attacker,76,Balanced
+P71,Participant_71,user71@university.edu,fifa,6,defender,80,Balanced
+P70,Participant_70,user70@university.edu,basketball,2,coordinator,60,Thinker
+P69,Participant_69,user69@university.edu,valorant,4,attacker,52,Thinker
+P68,Participant_68,user68@university.edu,basketball,3,strategist,60,Thinker
+P67,Participant_67,user67@university.edu,fifa,5,coordinator,48,null
+P66,Participant_66,user66@university.edu,cs:go,10,strategist,48,null
+P65,Participant_65,user65@university.edu,cs:go,6,supporter,60,Thinker
+P82,Participant_82,user82@university.edu,fifa,4,strategist,88,Balanced
+P81,Participant_81,user81@university.edu,fifa,2,supporter,72,Balanced
+P80,Participant_80,user80@university.edu,fifa,10,defender,48,null
+P79,Participant_79,user79@university.edu,cs:go,1,supporter,52,Thinker
+P78,Participant_78,user78@university.edu,fifa,7,strategist,48,null
+P77,Participant_77,user77@university.edu,cs:go,9,supporter,60,Thinker
+P76,Participant_76,user76@university.edu,fifa,2,attacker,44,null
+P75,Participant_75,user75@university.edu,valorant,7,attacker,64,Thinker
+P74,Participant_74,user74@university.edu,cs:go,10,coordinator,56,Thinker
+P91,Participant_91,user91@university.edu,dota 2,3,supporter,64,Thinker
+P90,Participant_90,user90@university.edu,basketball,3,attacker,68,Thinker
+P89,Participant_89,user89@university.edu,cs:go,10,attacker,80,Balanced
+P88,Participant_88,user88@university.edu,valorant,7,attacker,44,null
+P87,Participant_87,user87@university.edu,dota 2,3,attacker,40,null
+P86,Participant_86,user86@university.edu,basketball,6,attacker,88,Balanced
+P85,Participant_85,user85@university.edu,chess,9,strategist,52,Thinker
+P84,Participant_84,user84@university.edu,valorant,10,strategist,60,Thinker
+P83,Participant_83,user83@university.edu,basketball,7,coordinator,52,Thinker
+P100,Participant_100,user100@university.edu,dota 2,10,strategist,52,Thinker
+P99,Participant_99,user99@university.edu,basketball,5,strategist,60,Thinker
+P98,Participant_98,user98@university.edu,basketball,9,attacker,64,Thinker
+P97,Participant_97,user97@university.edu,valorant,8,strategist,52,Thinker
+P96,Participant_96,user96@university.edu,fifa,3,strategist,52,Thinker
+P95,Participant_95,user95@university.edu,fifa,5,coordinator,68,Thinker
+P94,Participant_94,user94@university.edu,chess,6,strategist,56,Thinker
+P93,Participant_93,user93@university.edu,dota 2,4,supporter,36,null
+P92,Participant_92,user92@university.edu,chess,7,supporter,56,Thinker
