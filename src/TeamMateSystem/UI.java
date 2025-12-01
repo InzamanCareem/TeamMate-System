@@ -45,44 +45,6 @@ public class UI {
                 }
 
                 case 2 -> {
-//                    System.out.print("Enter the participant name: ");
-//                    String name = scanner.nextLine();
-//
-//                    System.out.print("Enter the participant email: ");
-//                    String email = scanner.nextLine();
-//
-//                    Participant participant = new Participant(name, email);
-//
-//                    boolean participantAdded = teamMateController.addParticipant(participant);
-//
-//                    if (participantAdded){
-//                        System.out.println("Your participant id is: " + participant.getId());
-//                        int questionNo = 1;
-//                        for (String question: teamMateController.getSurveyQuestions()){
-//                            boolean accepted = true;
-//                            while (accepted){
-//                                System.out.print(question);
-//                                String answer = scanner.next();
-//                                Message message = teamMateController.fillSurvey(participant.getId(), questionNo, answer);
-//                                accepted = !message.isSuccess();
-//                                if (accepted) {
-//                                    System.out.println(message.getMessage());
-//                                }
-//                            }
-//                            questionNo++;
-//                        }
-//                        teamMateController.setParticipantValues(participant.getId());
-//                        System.out.println("Your personality: " + teamMateController.viewPersonalityType(participant.getId()));
-//
-//                        Message message = teamMateController.storeParticipantDetails(participant);
-//                        if (!message.isSuccess()){
-//                            System.out.println(message.getMessage());
-//                        }
-//                    }
-//                    else{
-//                        System.out.println("Participant already exists");
-//                    }
-
                     // Using Threads and concurrency
 
                     int noOfParticipants = 100;
@@ -115,6 +77,7 @@ public class UI {
                     List<Team> teams = teamMateController.viewTeamsForParticipant(id);
 
                     if (teams != null){
+                        System.out.println("This is your team: ");
                         for (Team team: teams){
                             team.displayTeam();
                         }
@@ -130,10 +93,6 @@ public class UI {
 
                 default -> System.out.println("Invalid command");
             }
-
-
-
-//            boolean organizer = true;
 
             while (organizer){
                 System.out.println("1. Upload CSV File\n2. Initiate Team Formation\n3. Save Formed Teams\n4. View Teams\n5. Logout\n6. Exit");
@@ -152,7 +111,8 @@ public class UI {
                         System.out.print("Enter the team size: ");
                         int teamSize = scanner.nextInt();
 
-                        teamMateController.initiateTeamFormation(teamSize);
+                        Message message = teamMateController.initiateTeamFormation(teamSize);
+                        System.out.println(message.getMessage());
                     }
 
                     case 3 -> {
@@ -161,9 +121,15 @@ public class UI {
                     }
 
                     case 4 -> {
-                        for (Team team: teamMateController.viewTeamsForOrganizer()){
-                            team.displayTeam();
-                            System.out.println();
+                        List<Team> teams = teamMateController.viewTeamsForOrganizer();
+                        if (!teams.isEmpty()){
+                            for (Team team: teams){
+                                team.displayTeam();
+                                System.out.println();
+                            }
+                        }
+                        else{
+                            System.out.println("Teams were not formed!");
                         }
                     }
 

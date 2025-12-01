@@ -146,9 +146,13 @@ public class TeamMateController {
 
     // Initiate Team Formation
 
-    public void initiateTeamFormation(int teamSize){
-        teams.clear();
-        teams.addAll(organizer.initiateTeamFormation(new ArrayList<>(participants.values()), teamSize));
+    public Message initiateTeamFormation(int teamSize){
+        if (!participants.isEmpty()){
+            teams.clear();
+            teams.addAll(organizer.initiateTeamFormation(new ArrayList<>(participants.values()), teamSize));
+            return new Message(true, teams.size() + " Teams Formed!");
+        }
+        return new Message(false, "No participants available to form teams!");
     }
 
 
@@ -156,12 +160,15 @@ public class TeamMateController {
     // Save Formed Teams
 
     public Message saveFormedTeams() {
-        try{
-            organizer.saveFormedTeams(teams, csvFileHandler);
-            return new Message(true, "formed_teams.csv file saved successfully\n" + teams.size() + " teams has been saved.");
-        } catch (IOException e) {
-            return new Message(false, "File saving failed\nError writing file: " + e.getMessage());
+        if (!teams.isEmpty()){
+            try{
+                organizer.saveFormedTeams(teams, csvFileHandler);
+                return new Message(true, "formed_teams.csv file saved successfully\n" + teams.size() + " teams has been saved.");
+            } catch (IOException e) {
+                return new Message(false, "File saving failed\nError writing file: " + e.getMessage());
+            }
         }
+        return new Message(false, "No teams were formed!");
     }
 
 
