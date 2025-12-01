@@ -38,12 +38,12 @@ public class Participant extends User{
         return id;
     }
 
-    public String getPersonalityType() {
-        return personalityType;
-    }
-
     public int getSkillLevel() {
         return skillLevel;
+    }
+
+    public String getPersonalityType() {
+        return personalityType;
     }
 
     public void setPreferredGame(String preferredGame) {
