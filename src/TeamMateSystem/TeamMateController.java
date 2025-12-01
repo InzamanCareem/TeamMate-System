@@ -186,6 +186,4 @@ public class TeamMateController {
     public List<Team> viewTeamsForOrganizer() {
         return organizer.viewTeams(teams);
     }
-
-
 }
