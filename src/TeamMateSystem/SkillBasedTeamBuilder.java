@@ -18,21 +18,6 @@ public class SkillBasedTeamBuilder extends TeamBuilder{
             teams.add(new Team(i+1, "Team"));
         }
 
-//        int lastMinChosen = 0;
-//        int lastMaxChosen = participants.size() - 1;
-
-//        for (int i = 0; i < noOfTeams; i++) {
-//            int count = 1;
-//            while (count <= teamSize && lastMinChosen <= lastMaxChosen){
-//                teams.get(i).addParticipant(participants.get(lastMinChosen++));
-//                count++;
-//                if (count <= teamSize && lastMinChosen <= lastMaxChosen){
-//                    teams.get(i).addParticipant(participants.get(lastMaxChosen--));
-//                    count++;
-//                }
-//            }
-//        }
-
         // Precomputing which participant goes to which team, so we can safely parallelize it without corrupting the order.
         List<List<Participant>> teamAssignments = new ArrayList<>();
         for (int i = 0; i < noOfTeams; i++) {
