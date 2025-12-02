@@ -2,9 +2,6 @@ package TeamMateSystem;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class UI {
     public static void main(String[] args) {
@@ -44,25 +41,8 @@ public class UI {
 
                     int noOfParticipants = 100;
 
-                    ExecutorService executorService = Executors.newFixedThreadPool(10);
-
-                    for (int i = 1; i <= noOfParticipants; i++) {
-                        Participant p = new Participant("Participant_" + i, "user" + i + "@university.edu");
-                        FillSurveyWorker fillSurveyWorker = new FillSurveyWorker(p, teamMateController);
-                        fillSurveyWorker.fillAnswers();
-                        executorService.submit(fillSurveyWorker);
-                    }
-
-                    executorService.shutdown();
-                    try {
-                        if (executorService.awaitTermination(5, TimeUnit.MINUTES)) {
-                            System.out.println("All survey tasks completed!");
-                        } else {
-                            System.out.println("Timeout reached before all tasks finished.");
-                        }
-                    } catch (InterruptedException e) {
-                        System.out.println("Thread interrupted while waiting for survey tasks.");
-                    }
+                    Message message = teamMateController.startSurveyTasks(noOfParticipants);
+                    System.out.println(message.getMessage());
                 }
 
                 case 3 -> {

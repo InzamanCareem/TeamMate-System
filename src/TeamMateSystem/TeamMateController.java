@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class TeamMateController {
     private final ConcurrentHashMap<String, Participant> participants = new ConcurrentHashMap<>();
@@ -18,6 +21,28 @@ public class TeamMateController {
     private final String filePath = "C:\\Users\\HP\\IdeaProjects\\TeamMateSystem\\participants.csv";
 
     // Fill Survey
+
+    public Message startSurveyTasks(int noOfParticipants){
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        for (int i = 1; i <= noOfParticipants; i++) {
+            Participant p = new Participant("Participant_" + i, "user" + i + "@university.edu");
+            FillSurveyWorker fillSurveyWorker = new FillSurveyWorker(p, this);
+            fillSurveyWorker.fillAnswers();
+            executorService.submit(fillSurveyWorker);
+        }
+
+        executorService.shutdown();
+        try {
+            if (executorService.awaitTermination(5, TimeUnit.MINUTES)) {
+                return new Message(true, "All survey tasks completed!");
+            } else {
+                return new Message(false, "Timeout reached before all tasks finished.");
+            }
+        } catch (InterruptedException e) {
+            return new Message(false, "Thread interrupted while waiting for survey tasks.");
+        }
+    }
 
     public Message fillSurvey(String participantId, int questionNo, String answer){
         Participant participant = participants.get(participantId);
