@@ -29,10 +29,10 @@ public class UI {
 
                     if (loggedIn){
                         organizer = true;
-                        System.out.println("You are logged in as an organizer");
+                        System.out.println(Color.BLUE + "You are logged in as an organizer" + Color.RESET);
                     }
                     else{
-                        System.out.println("Incorrect username or password");
+                        System.out.println(Color.RED + "Incorrect username or password" + Color.RESET);
                     }
                 }
 
@@ -58,7 +58,7 @@ public class UI {
                         }
                     }
                     else{
-                        System.out.println("Incorrect participant id");
+                        System.out.println(Color.RED + "Incorrect participant id" + Color.RESET);
                     }
                 }
 
@@ -66,7 +66,7 @@ public class UI {
                     break outer;
                 }
 
-                default -> System.out.println("Invalid command");
+                default -> System.out.println(Color.RED + "Invalid command" + Color.RESET);
             }
 
             while (organizer){
@@ -104,7 +104,7 @@ public class UI {
                             }
                         }
                         else{
-                            System.out.println("Teams were not formed!");
+                            System.out.println(Color.RED + "Teams were not formed!" + Color.RESET);
                         }
                     }
 
@@ -114,7 +114,7 @@ public class UI {
                         break outer;
                     }
 
-                    default -> System.out.println("Invalid command");
+                    default -> System.out.println(Color.RED + "Invalid command" + Color.RESET);
                 }
             }
         }

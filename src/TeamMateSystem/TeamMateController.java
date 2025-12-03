@@ -35,12 +35,12 @@ public class TeamMateController {
         executorService.shutdown();
         try {
             if (executorService.awaitTermination(5, TimeUnit.MINUTES)) {
-                return new Message(true, "All survey tasks completed!");
+                return new Message(true, Color.GREEN + "All survey tasks completed!" + Color.RESET);
             } else {
-                return new Message(false, "Timeout reached before all tasks finished.");
+                return new Message(false, Color.RED + "Timeout reached before all tasks finished." + Color.RESET);
             }
         } catch (InterruptedException e) {
-            return new Message(false, "Thread interrupted while waiting for survey tasks.");
+            return new Message(false, Color.RED + "Thread interrupted while waiting for survey tasks!" + Color.RESET);
         }
     }
 
@@ -50,20 +50,20 @@ public class TeamMateController {
         // For Personality Test
         if (questionNo >= 1 && questionNo <= 5){
             if (!isValidAnswer(answer)){
-                return new Message(false, "Invalid Answer");
+                return new Message(false, Color.RED + "Invalid Answer!" + Color.RESET);
             }
             survey.addPersonalityAnswer(participantId, questionNo, answer);
         }
         // For Interest Survey
         else if (questionNo >= 6 && questionNo <= 8) {
             if (questionNo == 6 && !isValidGame(answer)){
-                return new Message(false, "Invalid Answer\nPlease choose a game from this list:" + GAMES);
+                return new Message(false, Color.RED + "Invalid Answer\nPlease choose a game from this list: " + Color.RESET + GAMES);
             }
             else if (questionNo == 7 && !isValidSkillLevel(answer)){
-                return new Message(false, "Invalid Answer");
+                return new Message(false, Color.RED + "Invalid Answer" + Color.RESET);
             }
             else if (questionNo == 8 && !isValidRole(answer)) {
-                return new Message(false, "Invalid Answer\nPlease choose a role from this list: " + ROLES);
+                return new Message(false, Color.RED + "Invalid Answer\nPlease choose a role from this list: " + Color.RESET + ROLES);
             }
             survey.addInterestAnswer(participantId, questionNo, answer);
         }
@@ -123,7 +123,7 @@ public class TeamMateController {
             csvFileHandler.writeFile(filePath, participant);
             return new Message(true, "");
         } catch (IOException e) {
-            return new Message(false, "Details saving failed\nError writing file: " + e.getMessage());
+            return new Message(false, Color.RED + "Details saving failed\nError writing file: " + e.getMessage() + Color.RESET);
         }
     }
 
@@ -155,9 +155,9 @@ public class TeamMateController {
         try{
             List<String[]> fileParticipants = organizer.uploadCsvFile(filePath, csvFileHandler);
             addParticipantsFromCsv(fileParticipants);
-            return new Message(true, "CSV file uploaded successfully\n" + fileParticipants.size() + " participants has been processed.");
+            return new Message(true, Color.GREEN + "CSV file uploaded successfully\n" + fileParticipants.size() + " participants has been processed." + Color.RESET);
         } catch (IOException e) {
-            return new Message(false, "File upload failed\nError reading file: " + e.getMessage());
+            return new Message(false, Color.RED + "File upload failed\nError reading file: " + e.getMessage() + Color.RESET);
         }
     }
 
@@ -173,11 +173,25 @@ public class TeamMateController {
 
     public Message initiateTeamFormation(int teamSize){
         if (!participants.isEmpty()){
-            teams.clear();
-            teams.addAll(organizer.initiateTeamFormation(new ArrayList<>(participants.values()), teamSize));
-            return new Message(true, teams.size() + " Teams Formed!");
+            Message message = checkTeamSize(teamSize, participants.size());
+            if (message.isSuccess()){
+                teams.clear();
+                teams.addAll(organizer.initiateTeamFormation(new ArrayList<>(participants.values()), teamSize));
+                return new Message(true, Color.GREEN + teams.size() + " Teams Formed!" + Color.RESET);
+            }
+            return message;
         }
-        return new Message(false, "No participants available to form teams!");
+        return new Message(false, Color.RED + "No participants available to form teams!" + Color.RESET);
+    }
+
+    public Message checkTeamSize(int teamSize, int noOfParticipants){
+        if (teamSize <= 1){
+            return new Message(false, Color.RED + "Teams size cannot be less than 2!" + Color.RESET);
+        }
+        else if (teamSize >= noOfParticipants){
+            return new Message(false, Color.RED + "Team size cannot be greater than the no of participants!" + Color.RESET);
+        }
+        return new Message(true, "");
     }
 
 
@@ -188,12 +202,12 @@ public class TeamMateController {
         if (!teams.isEmpty()){
             try{
                 organizer.saveFormedTeams(teams, csvFileHandler);
-                return new Message(true, "formed_teams.csv file saved successfully\n" + teams.size() + " teams has been saved.");
+                return new Message(true, Color.GREEN + "formed_teams.csv file saved successfully\n" + teams.size() + " teams has been saved." + Color.RESET);
             } catch (IOException e) {
-                return new Message(false, "File saving failed\nError writing file: " + e.getMessage());
+                return new Message(false, Color.RED + "File saving failed\nError writing file: " + e.getMessage() + Color.RESET);
             }
         }
-        return new Message(false, "No teams were formed!");
+        return new Message(false, Color.RED + "No teams were formed!" + Color.RESET);
     }
 
 
