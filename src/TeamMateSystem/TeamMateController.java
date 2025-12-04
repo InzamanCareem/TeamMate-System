@@ -23,7 +23,8 @@ public class TeamMateController {
     // Fill Survey
 
     public Message startSurveyTasks(int noOfParticipants){
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        int numThreads = Math.min(noOfParticipants, Runtime.getRuntime().availableProcessors());
+        ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
 
         for (int i = 1; i <= noOfParticipants; i++) {
             Participant p = new Participant("Participant_" + i, "user" + i + "@university.edu");
