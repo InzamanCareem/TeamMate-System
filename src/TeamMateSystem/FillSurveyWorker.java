@@ -26,6 +26,7 @@ public class FillSurveyWorker implements Runnable {
         answers.add(Integer.toString(random.nextInt(1, 6)));
         answers.add(Integer.toString(random.nextInt(1, 6)));
         answers.add(Integer.toString(random.nextInt(1, 6)));
+
         answers.add(games.get(random.nextInt(games.size())));
         answers.add(Integer.toString(random.nextInt(1, 11)));
         answers.add(roles.get(random.nextInt(roles.size())));
@@ -42,15 +43,16 @@ public class FillSurveyWorker implements Runnable {
             }
 
             // Fill survey
-            int qNo = 1;
-            for (String question : controller.getSurveyQuestions()) {
+            for (int qNo = 1; qNo <= controller.getSurveyQuestions().size(); qNo++) {
                 boolean accepted = true;
                 while (accepted) {
                     String answer = answers.get(qNo - 1);
                     Message msg = controller.fillSurvey(participant.getId(), qNo, answer);
                     accepted = !msg.isSuccess();
+                    if (!msg.isSuccess()){
+                        break;
+                    }
                 }
-                qNo++;
             }
 
             // Set participant values and store details
@@ -58,11 +60,11 @@ public class FillSurveyWorker implements Runnable {
             String personality = controller.viewPersonalityType(participant.getId());
             controller.storeParticipantDetails(participant);
 
-//            System.out.println("Participant: " + participant.getId() + " | Personality: " + personality
-//            + " [Thread: " + Thread.currentThread().getName() + "]");
+            System.out.println(Color.GREEN + "Participant: " + participant.getId() + " | Personality: " + personality
+            + " [Thread: " + Thread.currentThread().getName() + "]" + Color.RESET);
 
         } catch (Exception e) {
-            System.out.println("Error in participant " + participant.getId() + ": " + e.getMessage());
+            System.out.println(Color.RED + "Invalid input for participant: " + participant.getId() + Color.RESET);
         }
     }
 }

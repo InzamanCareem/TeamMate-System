@@ -39,7 +39,7 @@ public class UI {
                 case 2 -> {
                     // Using Threads and concurrency
 
-                    int noOfParticipants = 100;
+                    int noOfParticipants = 10;
 
                     Message message = teamMateController.startSurveyTasks(noOfParticipants);
                     System.out.println(message.getMessage());
