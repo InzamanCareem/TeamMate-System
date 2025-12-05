@@ -11,6 +11,13 @@ public class UI {
         outer: while (true){
             System.out.println("1. Login (if Organizer)\n2. Fill Survey\n3. View Teams\n4. Exit");
             System.out.print("Enter the command: ");
+
+            while (!scanner.hasNextInt()){
+                System.out.println(Color.RED + "Invalid command" + Color.RESET);
+                scanner.nextLine();
+                System.out.print("Enter the command: ");
+            }
+
             int command = scanner.nextInt();
 
             scanner.nextLine();
@@ -72,6 +79,13 @@ public class UI {
             while (organizer){
                 System.out.println("1. Upload CSV File\n2. Initiate Team Formation\n3. Save Formed Teams\n4. View Teams\n5. Logout\n6. Exit");
                 System.out.print("Enter the command: ");
+
+                while (!scanner.hasNextInt()){
+                    System.out.println(Color.RED + "Invalid command" + Color.RESET);
+                    scanner.nextLine();
+                    System.out.print("Enter the command: ");
+                }
+
                 int orgCommand = scanner.nextInt();
 
                 scanner.nextLine();
@@ -84,6 +98,13 @@ public class UI {
 
                     case 2 -> {
                         System.out.print("Enter the team size: ");
+
+                        while (!scanner.hasNextInt()){
+                            System.out.println(Color.RED + "Team size should be a number!" + Color.RESET);
+                            scanner.nextLine();
+                            System.out.print("Enter the command: ");
+                        }
+
                         int teamSize = scanner.nextInt();
 
                         Message message = teamMateController.initiateTeamFormation(teamSize);
