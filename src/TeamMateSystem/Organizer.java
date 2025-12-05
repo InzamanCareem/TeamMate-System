@@ -12,7 +12,7 @@ public class Organizer extends User{
     }
 
     private boolean detailsValid(String username, String password){
-        return account.getUsername().equals(username) && account.getPassword().equals(password);
+        return account.getUsername().equals(username) && account.checkPassword(password);
     }
 
     public boolean login(String username, String password){
