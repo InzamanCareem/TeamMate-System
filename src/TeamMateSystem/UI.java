@@ -27,10 +27,10 @@ public class UI {
             switch (command){
                 case 1 -> {
                     System.out.print("Enter the username: ");
-                    String username = scanner.nextLine();
+                    String username = scanner.nextLine().trim();
 
                     System.out.print("Enter the password: ");
-                    String password = scanner.nextLine();
+                    String password = scanner.nextLine().trim();
 
                     boolean loggedIn = teamMateController.organizerLogin(username, password);
 
@@ -54,7 +54,7 @@ public class UI {
 
                 case 3 -> {
                     System.out.print("Enter participant id: ");
-                    String id = scanner.nextLine();
+                    String id = scanner.nextLine().trim();
 
                     List<Team> teams = teamMateController.viewTeamsForParticipant(id);
 

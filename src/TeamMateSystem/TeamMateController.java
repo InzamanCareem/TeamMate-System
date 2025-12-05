@@ -120,6 +120,15 @@ public class TeamMateController {
     }
 
     /**
+     * Removes a participant from the system.
+     *
+     * @param participantId The participant to remove.
+     */
+    public void removeParticipant(String participantId){
+        participants.remove(participantId);
+    }
+
+    /**
      * Returns the list of survey questions.
      *
      * @return List of survey questions.

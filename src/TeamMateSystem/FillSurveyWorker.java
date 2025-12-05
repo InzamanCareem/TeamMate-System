@@ -68,12 +68,12 @@ public class FillSurveyWorker implements Runnable {
      */
     public void fillAnswers(){
 
-        // Can change the value range to show incorrect answers for these questions
+        // Can change the value range to simulate incorrect answers for these questions
 
         // Answers for five personality questions (1–5)
         answers.add(Integer.toString(random.nextInt(1, 6)));
         answers.add(Integer.toString(random.nextInt(1, 6)));
-        answers.add(Integer.toString(random.nextInt(1, 10)));
+        answers.add(Integer.toString(random.nextInt(1, 6)));
         answers.add(Integer.toString(random.nextInt(1, 6)));
         answers.add(Integer.toString(random.nextInt(1, 6)));
 
@@ -116,6 +116,7 @@ public class FillSurveyWorker implements Runnable {
                     accepted = !msg.isSuccess();
 
                     if (!msg.isSuccess()){
+                        controller.removeParticipant(participant.getId());
                         break;
                     }
                 }
@@ -126,6 +127,11 @@ public class FillSurveyWorker implements Runnable {
 
             // After survey completion and filling details, calculate all scores for the participant
             String personality = controller.viewPersonalityType(participant.getId());
+            
+            // Participants with personality type null will be excluded from the system
+            if (personality == null){
+                controller.removeParticipant(participant.getId());
+            }
 
             // Retrieve personality type and store participant details to file
             controller.storeParticipantDetails(participant);
